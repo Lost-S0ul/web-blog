@@ -7,14 +7,62 @@ main h1 {
 .container {
     max-width: 1546px;
     margin: 0 auto;
+    width: 99%;
+    padding-top: 1%;
 }
+
+.arguments {
+    display: flex;
+}
+
+.arguments input {
+    width: 95%;
+    padding: 0.5%;
+    padding-left: 1.5%;
+    border: 2.5px solid #69cbc3;
+}
+
+.arguments button {
+    display: block;
+    border: 2.5px solid #69cbc3;
+    color: #448a8d;
+    cursor: pointer;
+}
+
+.arguments-block-left button{
+    padding: 5px ;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 3%;
+}
+
+
+.arguments-block-left {
+    width: 80%;
+}
+
+.arguments-block-right {
+}
+
+.arguments-block-right button{
+    width: auto;
+    padding: 5px ;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    padding: 5px ;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
 
 .blog {
     border: 4px solid #448a8d;
     padding: 1.5%;
     margin: 0 auto;
     margin-bottom: 20px;
-    width: 95%;
     display: flex;
 }
 
@@ -25,7 +73,7 @@ main h1 {
     padding-right: 20px;
     margin-bottom: 3%;
     display: block;
-    border: 3px solid #69cbc3;
+    border: 2.5px solid #69cbc3;
     color: #448a8d;
     cursor: pointer;
 }
