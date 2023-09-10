@@ -13,7 +13,7 @@
             <a href="">Главная</a>
             <a href="">Посты</a>
             <a href="">О проекте</a>
-            <a href="">выйти</a>
+            <a href="">Выйти</a>
         </nav>
     </header>
     <main>
@@ -21,7 +21,7 @@
             <section class="arguments">
                 <div class="arguments-block-left">
                     <input type="text" placeholder="Поиск">
-                    <button>Создать пост</button>
+                    <button id="createBlog">Создать пост</button>
                 </div>
                 <div class="arguments-block-right">
                     <button>Сортировка<img src="" alt=""></button>
@@ -54,6 +54,16 @@
         </section>
 
     </main>
-    <script src="script.js"></script>
+
+    <div class="create-blog hidden">
+        <div id="closeBlog" class="black-film"></div>
+        <form action="" class="create-blog-form">
+            <input type="text" name="blogName" placeholder="Название">
+            <input type="text" name="About" placeholder="Описание">
+            <button>Добавить пост</button>
+        </form>
+    </div>
+
+    <script src="/static/scripts/blogs.js"></script>
 </body>
 </html>
