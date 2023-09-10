@@ -4,13 +4,6 @@ main h1 {
     margin-bottom: 30px;
 }
 
-.container {
-    max-width: 1546px;
-    margin: 0 auto;
-    width: 99%;
-    padding-top: 1%;
-}
-
 .arguments {
     display: flex;
 }
@@ -51,10 +44,7 @@ main h1 {
     padding: 5px ;
     padding-left: 20px;
     padding-right: 20px;
-
-    padding: 5px ;
-    padding-left: 20px;
-    padding-right: 20px;
+    text-align: left;
 }
 
 
