@@ -11,8 +11,10 @@ document.querySelector("#createBlog").addEventListener("click", openBlog)
 document.querySelector("#closeBlog").addEventListener("click", closeBlog)
 
 let posts = [
-    {"header": "headfder",
-    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam delectus libero, repudiandae molestias, esse, nesciunt similique sint pariatur ipsum sed quas quibusdam officia quisquam doloribus iure tenetur tempore labore? Culpa!"}
+    {
+        "header": "headfder",
+       "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam delectus libero, repudiandae molestias, esse, nesciunt similique sint pariatur ipsum sed quas quibusdam officia quisquam doloribus iure tenetur tempore labore? Culpa!"
+    }
 ];
 let newPost = [
 ]
@@ -27,7 +29,6 @@ function drawPost(post){
     postHeader.innerHTML = post["header"];
     postContent.innerHTML = post["content"];
     
-    console.log(instance)
     const pickedLingua = document.getElementById('blogs');
     pickedLingua.appendChild(instance);
 }
@@ -38,3 +39,18 @@ function drawAllPosts(postArray) {
 }
 
 drawAllPosts(posts) 
+
+// add post
+function addPost() {
+    console.log('yes')
+    header = document.querySelector("#header-input").value;
+    content = document.querySelector("#content-input").value;
+    posts.push({
+        "header": header,
+        "content": content
+    })
+}
+
+
+// add event for button
+document.querySelector("#newPost").addEventListener("click", addPost);
