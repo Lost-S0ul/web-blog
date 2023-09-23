@@ -13,18 +13,22 @@ document.querySelector("#closeBlog").addEventListener("click", closeBlog)
 let posts = [
     {
         "header": "headfder",
-       "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam delectus libero, repudiandae molestias, esse, nesciunt similique sint pariatur ipsum sed quas quibusdam officia quisquam doloribus iure tenetur tempore labore? Culpa!"
+        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam delectus libero, repudiandae molestias, esse, nesciunt similique sint pariatur ipsum sed quas quibusdam officia quisquam doloribus iure tenetur tempore labore? Culpa!"
+    },
+    {
+        "id": 1,
+        "header": "headfder",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam delectus libero, repudiandae molestias, esse, nesciunt similique sint pariatur ipsum sed quas quibusdam officia quisquam doloribus iure tenetur tempore labore? Culpa!"
     }
 ];
-let newPost = [
-]
 // draw all posts
 // header, content
-function drawPost(post){
+function drawPost(post, id){
     const template = document.getElementById('post-template');
     const instance = template.content.cloneNode(true);
     const postHeader = instance.querySelector('#post-header');
     const postContent = instance.querySelector('#post-content');
+    const deleteButton = instance.querySelector("#delete").addEventListener("click", () => {deletePost(id)})
 
     postHeader.innerHTML = post["header"];
     postContent.innerHTML = post["content"];
@@ -33,9 +37,9 @@ function drawPost(post){
     pickedLingua.appendChild(instance);
 }
 
-function drawAllPosts(postArray) {
-    for (index = 0; index < postArray.length; index++)
-        drawPost(postArray[index])
+function drawAllPosts() {
+    for (index = 0; index < posts.length; index++)
+        drawPost(posts[index], index)
 }
 
 drawAllPosts(posts) 
@@ -54,3 +58,11 @@ function addPost() {
 
 // add event for button
 document.querySelector("#newPost").addEventListener("click", addPost);
+
+
+// delete post
+function deletePost(postId) {
+    console.log(posts)
+    console.log("id:" + postId)
+    posts.splice(postId,1)
+}
