@@ -57,6 +57,10 @@ main h1 {
     display: flex;
 }
 
+.blog-left-block {
+    width: 100%;
+}
+
 .blog-right-block button {
     width: auto;
     padding: 5px ;
