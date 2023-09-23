@@ -10,28 +10,40 @@ function closeBlog() {
 document.querySelector("#createBlog").addEventListener("click", openBlog)
 document.querySelector("#closeBlog").addEventListener("click", closeBlog)
 
-let posts = [
-    {
-        "header": "headfder",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam delectus libero, repudiandae molestias, esse, nesciunt similique sint pariatur ipsum sed quas quibusdam officia quisquam doloribus iure tenetur tempore labore? Culpa!"
-    },
-    {
-        "id": 1,
-        "header": "headfder",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam delectus libero, repudiandae molestias, esse, nesciunt similique sint pariatur ipsum sed quas quibusdam officia quisquam doloribus iure tenetur tempore labore? Culpa!"
+
+// posts
+class Post {
+    header;
+    content;
+    id_;
+    constructor (header, content, id) {
+        this.header = header;
+        this.content = content;
+        this.id_ = id;
     }
+    get id() {
+        return this.id_;
+    }
+}
+
+let posts = [
+
 ];
+
+let newPosts = [
+]
+
+
 // draw all posts
-// header, content
-function drawPost(post, id){
+function drawPost(post){
     const template = document.getElementById('post-template');
     const instance = template.content.cloneNode(true);
     const postHeader = instance.querySelector('#post-header');
     const postContent = instance.querySelector('#post-content');
-    const deleteButton = instance.querySelector("#delete").addEventListener("click", () => {deletePost(id)})
+    instance.querySelector("#delete").addEventListener("click", () => {deletePost(post.id)})
 
-    postHeader.innerHTML = post["header"];
-    postContent.innerHTML = post["content"];
+    postHeader.innerHTML = post.header;
+    postContent.innerHTML = post.content;
     
     const pickedLingua = document.getElementById('blogs');
     pickedLingua.appendChild(instance);
@@ -39,30 +51,31 @@ function drawPost(post, id){
 
 function drawAllPosts() {
     for (index = 0; index < posts.length; index++)
-        drawPost(posts[index], index)
+        drawPost(posts[index]);
 }
 
 drawAllPosts(posts) 
 
+
 // add post
 function addPost() {
-    console.log('yes')
     header = document.querySelector("#header-input").value;
     content = document.querySelector("#content-input").value;
-    posts.push({
-        "header": header,
-        "content": content
-    })
+    let newPost = new Post(header, content);
+    posts.push(newPost);
+    drawPost(newPost); 
 }
 
 
 // add event for button
 document.querySelector("#newPost").addEventListener("click", addPost);
 
-
 // delete post
 function deletePost(postId) {
-    console.log(posts)
-    console.log("id:" + postId)
-    posts.splice(postId,1)
+    for (let index = 0; index < posts.length; index++) {
+        if (posts[index].id === postId) {
+            posts.splice(index, 1);
+            break
+        }
+    }
 }
